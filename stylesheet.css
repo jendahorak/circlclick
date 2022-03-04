@@ -1,0 +1,94 @@
+/* CSS HEX */
+
+:root {
+  --davys-grey: hsla(0, 0%, 33%, 1);
+  --slate-gray: hsla(205, 8%, 45%, 1);
+  --red-crayola: hsla(347, 86%, 56%, 1);
+  --light-green: hsla(104, 64%, 63%, 1);
+  --bitter-lime: hsla(78, 100%, 65%, 1);
+  --dark-jungle-green: hsla(130, 8%, 15%, 0.4);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--davys-grey);
+  font-family: "Raleway", sans-serif;
+  color: var(--bitter-lime);
+  text-align: center;
+}
+
+.main-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-rows: 100px 50px auto;
+
+  padding-block: 2rem;
+  width: min(95%, 70rem);
+  margin-inline: auto;
+}
+
+.title {
+  font-size: 60px;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.end-q {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+
+  font-weight: 600;
+  font-size: 80px;
+  color: var(--red-crayola);
+  cursor: pointer;
+
+}
+
+.end-q:hover{
+    color: var(--light-green);
+}
+
+#nav_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  gap: 1.5rem;
+}
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: large;
+  color: var(--light-green);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button:hover {
+  font-size: x-large;
+  font-weight: 400;
+  color: var(--bitter-lime);
+  border: 1px solid var(--bitter-lime);
+}
+
+#canvas {
+  background-color: var(--dark-jungle-green);
+  border-radius: 10px;
+}
+
+circle {
+  fill: var(--bitter-lime);
+}
+
+circle:hover {
+  fill: var(--red-crayola);
+}
