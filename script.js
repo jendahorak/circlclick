@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function getRndPos(lastCircle) {
         let currCircleSize = parseInt(lastCircle.getAttribute('r'))
-        let newX = getRndInteger(currCircleSize, canvasWidth - currCircleSize -2)
+        let newX = getRndInteger(currCircleSize, canvasWidth - currCircleSize - 2)
         let newY = getRndInteger(currCircleSize, 600 - currCircleSize - 2)
         let coords = { 'x': newX, "y": newY }
         return coords
@@ -56,37 +56,45 @@ document.addEventListener("DOMContentLoaded", () => {
     let myTimer = null;
 
     function startCountDown() {
-       myTimer = setInterval(updateTimer, 1000)
+        myTimer = setInterval(updateTimer, 1000)
     }
 
     function updateTimer() {
-        countdownEl.innerHTML = `0 : ${timeSec}`
+        if (timeSec < 10){
+            countdownEl.innerHTML = `0 : 0${timeSec}`
+        } else {
+            countdownEl.innerHTML = `0 : ${timeSec}`
+        }
+
         timeSec--;
         stopInterval()
     }
 
-    function stopInterval(){
+    function stopInterval() {
         if (timeSec == -1) {
             clearInterval(myTimer)
             countdownEl.innerHTML = `0 : 00`
             currentCircle.setAttribute('x', -100)
             currentCircle.setAttribute('y', -100)
+
             countdownEl.addEventListener('click', restart)
+
             endQuote()
         }
     }
 
-    function endQuote(){
+    function endQuote() {
         let fin = document.createElement('div')
         fin.innerHTML = `Time's Up`
         fin.classList.add('title')
         fin.classList.add('end-q')
         fin.setAttribute('title', 'Click to restart the game')
+
         canvasDiv.appendChild(fin)
         fin.addEventListener('click', restart)
     }
 
-    function restart(){
+    function restart() {
         window.top.location = window.top.location
     }
 
